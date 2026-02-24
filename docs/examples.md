@@ -2,7 +2,7 @@
 
 #### MySQL
 To start the configuration for a MySQL database, run:
-$ guarddb --config db
+$ GuardDB --config db
 
 ? Choose the type of database to backup: MySQL
 ? Enter your database username: root

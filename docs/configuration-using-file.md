@@ -16,4 +16,4 @@ You can initialize GuardDB by providing a JSON file with your settings:
 }
 
 **Command:**
-$ guarddb --config=db --file=./dbConfig.json
+$ GuardDB --config=db --file=./dbConfig.json
