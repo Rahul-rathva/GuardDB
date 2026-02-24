@@ -1,0 +1,19 @@
+# Systemd unit file for GuardDB
+# Location: /etc/systemd/system/guarddb.service
+
+[Unit]
+Description=GuardDB Automated Database Backups
+Documentation=https://github.com/Rahul-rathva/GuardDB
+After=network.target
+
+[Service]
+# Tells Linux where your code lives
+WorkingDirectory=/usr/local/lib/node_modules/guarddb/bin/
+# The command to keep your robot running in the background
+ExecStart=/usr/bin/node guarddb --start
+Type=simple
+# Always restart if it crashes
+Restart=always
+
+[Install]
+WantedBy=default.target
