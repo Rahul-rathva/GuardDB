@@ -1,0 +1,30 @@
+{
+    "name": "GuardDB",
+    "version": "1.0.0",
+    "description": "A professsional CLI tool to automate and secure database backups",
+    "homepage": "https://github.com/Rahul-rathva/GuardDB",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Rahul-rathva/GuardDB.git"
+    },
+    "author": {
+        "name": "Rahul Rathva",
+        "url": "https://github.com/Rahul-rathva/GuardDB"
+    },
+    "license":"MIT",
+    "main": "src/backup.js",
+    "bin": {
+        "GuardDB" :"bin/GuardDB"
+        },
+        "scripts": {
+            "start": "node src/backup.js",
+            "fmt": "prettier --write scripts src"
+        },
+        "dependencies": {
+            "mysql": "^2.18.1",
+        "node-cron": "^2.0.3",
+        "ora": "^4.0.4",
+        "inquirer": "^7.1.0"
+        }
+
+}
