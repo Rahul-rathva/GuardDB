@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+const omelette = require('omelette');
+
+// This part makes the 'Tab' key work for autocompletion
+const completion = omelette('guarddb').tree({
+    '--config': {
+        'db': ['--file', '--debug', '--stacktrace'],
+        'remote-sync': ['--file', '--debug', '--stacktrace'],
+        'smtp': ['--file', '--debug', '--stacktrace']
+    },
+    '--enable': {
+        'cipher': ['--debug', '--stacktrace'],
+        'remote-sync': ['--debug', '--stacktrace'],
+        'smtp': ['--debug', '--stacktrace']
+    },
+    '--disable':  {
+        'cipher': ['--debug', '--stacktrace'],
+        'remote-sync': ['--debug', '--stacktrace'],
+        'smtp': ['--debug', '--stacktrace']
+    },
+    '--enablejob': [],
+    '--disablejob': [],
+    '--version': [],
+    '--help': [],
+    '--start': [],
+    '--restore': [],
+    '--reset': ['--job']
+});
+
+completion.init();
+
+// This line passes your terminal commands to the actual logic in src/cli.js
+require('../src/cli').cli(process.argv);
