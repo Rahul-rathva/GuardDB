@@ -1,8 +1,8 @@
 const fs = require ('fs');  // built in file module system to read files from disk
-const strings = require('./strings'); //Imports Encryption file from this file and contains the custom identifier added during encryption 
+const strings = require('./strings');   //Imports Encryption file from this file and contains the custom identifier added during encryption 
 
-let readData = async (fileName) => { //declares async function and accepts file, why async? file reading is async in nodejs
-    const chunks = [];  // empty array for storing file chunks  as file streams sends data in chunks or pieces.
+let readData = async (fileName) => {    //declares async function and accepts file, why async? file reading is async in nodejs
+    const chunks = [];      // empty array for storing file chunks  as file streams sends data in chunks or pieces.
     const readStream = fs.createReadStream(fileName,{start: 0,end: 3}); //reading only first 4 bytes as EncryptionTag is 4 character long 
     // instead of reading entire file we only need first 4 bytes as faster and memory efficient.
     let promise = new Promise ((resolve,reject)=>{
