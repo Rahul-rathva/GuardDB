@@ -40,10 +40,42 @@ questions.push({
     // if(resetConfirm.resetConfirmation){..}
                         //↑ this 'resetConfirmation' key
 
-    message: `Are you sure you want to clear allthe saved confrigations for the job` ${jobName}`?`,
+    message: `Are you sure you want to clear allthe saved confrigations for the job' ${jobName}'?`,
 
     //the actaul text shown to the user in the terminal //template literal embeds the job name dynamically
     //Example with jonName = 'master' :
-    //
-})
-}
+    //"are you sure you want to clear all the Saved"
+    //configuration for the job master? (yes/no)?
+
+    //good practice: Name exactly what job is affected //Bad example: are you sure(what are we deleting)
+    // indusrty term: "Desstrctive action confirmation" - //Used everywhere :delete this file //format thi drive etc
+
+});
+
+//Question object is now in the array //questions = [  type:'confirm', name: 'resetConfirmation', messsage:
+//"are you sure..?"} ]
+
+
+return await inquirer.prompt(questions);
+//inquirer.prompt() does two things: 1. displays the questions in the terminal
+//2.waits for the user input 
+//3. resolves a promise that resolves with an answer object 
+//'await' pauses here until the user answers and presses enter// While waiting: the node.js event loop
+//is free(non-blocking) 
+//return value structure// could also be written as just: return inquirer.promt(questions);
+// both work but return await is slightly cleare about the intent
+// the difference: return await catches the errors from prompt () in this function's try/catch, while
+//bare return would propagate them up.//if there were 3 quesitons , the return would be :
+// {resetConfirmation: true, dbtype: 'mysql', dbHost: 'localhost'} all combined in one object
+//, keyed by their 'name' field  
+
+};
+
+module.exports = {
+    askRetentionConfirmation,
+    //Exports this function so cli can use it //used in cli as : const inquirer require('./inquirer'); then const resetConfirmation = await inquirer.askResetConfirmation(jobName);
+    //only one function is exported - this file is very focused, FOLLOWS single responsibilty principle
+    //this file's only task is to ask the user for confirmation before resetting a backup job's configuration
+    //in larger app, this file would have more questions functions: //askDbconfig,asksmtpConfig, askremoteSyncCOnfig etc..
+    //but here each module(db,smtp ,remotesync) likely has its own prompts defined internally
+};
