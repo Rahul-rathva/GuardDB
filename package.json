@@ -25,5 +25,23 @@
         "mysql": "^2.18.1",
         "node-cron": "^2.0.3",
         "ora": "^4.0.4"
-    }
+    },
+    "devDependencies": {
+        "jest": "^30.4.2"
+    },  
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/__tests__/**/*.js", "**/*.test.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js"
+    ]
+  }
+    
 }
