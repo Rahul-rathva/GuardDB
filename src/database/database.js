@@ -375,5 +375,5 @@ module.exports ={
     //note: restore() is not exported - its a private helper
     //only setupRestore() is public - it handles the full flow
     //restor() is an internal detail nobody outside needs to call direclty 
-    //industry term: "Encapsulation " - hide internals , expose only what's needed
+
 };
